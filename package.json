@@ -1,0 +1,24 @@
+{
+  "name": "docker-logs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolevoper/docker-logs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dolevoper/docker-logs/issues"
+  },
+  "homepage": "https://github.com/dolevoper/docker-logs#readme",
+  "dependencies": {
+    "node-docker-api": "^1.1.22"
+  }
+}
