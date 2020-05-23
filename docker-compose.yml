@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+
+    logs-app:
+        build: .
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./src:/usr/src/app/src
+            - ./node_modules:/usr/src/app/node_modules
+            - ./package.json:/usr/src/app/package.json
+            - ./package-lock.json:/usr/src/app/package-lock.json
