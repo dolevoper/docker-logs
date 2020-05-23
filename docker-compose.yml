@@ -9,3 +9,4 @@ services:
             - ./node_modules:/usr/src/app/node_modules
             - ./package.json:/usr/src/app/package.json
             - ./package-lock.json:/usr/src/app/package-lock.json
+        command: npm run start:dev

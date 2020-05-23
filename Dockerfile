@@ -6,6 +6,8 @@ COPY package.json package-lock.json ./
 
 RUN npm install
 
-CMD [ "npm", "start" ]
-
 COPY . .
+
+RUN npm run build
+
+CMD [ "npm", "start" ]
