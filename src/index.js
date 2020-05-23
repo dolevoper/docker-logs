@@ -2,10 +2,22 @@ const { Docker } = require('node-docker-api');
 
 const docker = new Docker({ socketPath: '/var/run/docker.sock' });
 
-async function app() {
-    const images = await docker.image.list();
+const containerNames = ['/optimistic_tu'];
 
-    images.forEach(image => console.log(image.id));
+async function app() {
+    const containers = await docker.container.list();
+
+    containers
+        .filter(container => container.data.Names.some(name => containerNames.includes(name)))
+        .forEach(async container => {
+            console.log(`spying on: ${container.id}`);
+
+            const logs = await container.logs({ follow: false, stdout: true, stderr: true });
+
+            logs.pipe(process.stdout);
+
+            await new Promise(resolve => logs.on('end', resolve));
+        });
 }
 
 app();
